@@ -30,10 +30,10 @@ app.use('/*', async (req: Request, res: Response) => {
       data: req?.body,
       headers: {
         accept: 'application/json, text/plain, */*',
-        'accept-language': 'en-GB',
+        'accept-language': 'en-US',
         'application-interface-key': '52ve7fwy',
+        'content-type': 'application/json',
         priority: 'u=1, i',
-        referer: 'https://smdg-s4-dev-simplemdg-web.cfapps.br10.hana.ondemand.com/admin/index.html',
         'sec-ch-ua': '"Brave";v="137", "Chromium";v="137", "Not/A)Brand";v="24"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"Windows"',
@@ -41,10 +41,11 @@ app.use('/*', async (req: Request, res: Response) => {
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
-        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36',
-        'x-correlation-id': 'smdg.dev@simplemdg.com',
-        'x-csrf-token': '0d86ed8466fbc291-7KDipCkGENUnFqfxfGRa6i8Fhf4',
-        Cookie: 'notice_gdpr_prefs=0::implied,eu; cmapi_cookie_privacy=permit 1 required; cmapi_gtm_bl=ga-ms-ua-ta-asp-bzi-sp-awct-cts-csm-img-flc-fls-mpm-mpr-m6d-tc-tdc; notice_preferences=0:; notice_behavior=implied,eu; __VCAP_ID__=6a7c9c00-2100-466d-465a-a30f; JSESSIONID=s%3AkiBeDNr5vT_1dIHLwO69e-SAW8d83HWq.iq5CA7y2XBxxG4C8OHsuXEGgNFzu59xf8c2SQ3cZSXc',
+        'x-correlation-id': 'single.ams@laidon.com',
+        'x-csrf-token': 'e91939bdd16a6283-xBMNmSLH37LVGEa8lqY0rpiINu8',
+        cookie: '__VCAP_ID__=47dd19ff-fdb8-43a7-4b0b-8574; JSESSIONID=s%3AjiY4rmXn09chSTOTpZvvYNRRsSpa7_tt.obtuNtY%2Fk5n873T2rz%2F0Dz0ze4SnH3WKDcOUOXftHLo',
+        Referer: 'https://single-ams-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
       },
     })
   } catch (error) {
