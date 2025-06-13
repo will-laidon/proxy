@@ -30,40 +30,45 @@ app.use('/*', async (req: Request, res: Response) => {
       method: req.method,
       url: `${SERV_URL}${req.originalUrl}`,
       data: req?.body,
-     "headers": {
-    "accept": "application/json, text/plain, */*",
-    "accept-language": "en-US",
-    "application-interface-key": "52ve7fwy",
-    "priority": "u=1, i",
-    "sec-ch-ua": "\"Brave\";v=\"137\", \"Chromium\";v=\"137\", \"Not/A)Brand\";v=\"24\"",
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": "\"Windows\"",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-origin",
-    "sec-gpc": "1",
-    "cookie": "__VCAP_ID__=ed7cf2a1-fb2b-4e02-77d7-8d61; JSESSIONID=s%3AOIjtpxk5M0kdZLL5Y58bVaJMiGmcEMOi.TeQVZBm7KFbxSp18GCnZScQVR76eDfq7WGu3bxcwCpY",
-    "Referer": "https://single-ams-simplemdg-web.cfapps.br10.hana.ondemand.com/admin/index.html",
-    "Referrer-Policy": "strict-origin-when-cross-origin"
-  },
+      headers: {
+        accept: 'application/json, text/plain, */*',
+        'accept-language': 'en-US',
+        'application-interface-key': '52ve7fwy',
+        'content-type': 'application/json',
+        priority: 'u=1, i',
+        'sec-ch-ua': '"Brave";v="137", "Chromium";v="137", "Not/A)Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'sec-gpc': '1',
+        'x-correlation-id': 'single.ams@laidon.com',
+        'x-csrf-token': '5ad40062bf6ca7a9-DohMdbrsX_kTtyBirq2mWilyxOg',
+        cookie: 'JSESSIONID=s%3AJj6UTLMLGdSxMG6J0gFx0AZnHQsm4yQV.qQaRwVfA5h9jKjDPRLlWYUW498Mo%2FQNSQQ1S84XyUaM; __VCAP_ID__=0de4e400-1d7b-49bf-4d7c-e7c4',
+        Referer: 'https://single-ams-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+      },
     })
   } catch (error) {
-    return res.status(400).send(error?.message)
+    const status = error?.response?.status || 500
+    const message = error?.response?.data || error?.message || 'Internal Server Error'
+    console.error('[Proxy Error]', status, message)
+    return res.status(status).send(message)
   }
 
   const headers = request.headers
 
   _.unset(headers, 'transfer-encoding')
 
-  res.set(headers)
+  const safeHeaders = _.omit(headers, ['transfer-encoding', 'connection', 'content-length'])
+  res.set(safeHeaders)
 
   let data = request?.data
 
   if (_.isNumber(data)) {
     data = data.toString()
   }
-
-  // res.sendStatus(request?.status ?? 200);
 
   return res.status(request?.status ?? 200).send(data)
 })

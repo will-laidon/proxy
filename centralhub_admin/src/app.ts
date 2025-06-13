@@ -49,22 +49,24 @@ app.use('/*', async (req: Request, res: Response) => {
       },
     })
   } catch (error) {
-    return res.status(400).send(error?.message)
+    const status = error?.response?.status || 500
+    const message = error?.response?.data || error?.message || 'Internal Server Error'
+    console.error('[Proxy Error]', status, message)
+    return res.status(status).send(message)
   }
 
   const headers = request.headers
 
   _.unset(headers, 'transfer-encoding')
 
-  res.set(headers)
+  const safeHeaders = _.omit(headers, ['transfer-encoding', 'connection', 'content-length'])
+  res.set(safeHeaders)
 
   let data = request?.data
 
   if (_.isNumber(data)) {
     data = data.toString()
   }
-
-  // res.sendStatus(request?.status ?? 200);
 
   return res.status(request?.status ?? 200).send(data)
 })

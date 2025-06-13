@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "start": "tsc && node ./gen/srv/srv/app.js",
-    "dev": "concurrently \"tsc --watch\" \"nodemon ./gen/srv/srv/app.js\"",
+    "start": "concurrently \"tsc --watch\" \"nodemon ./gen/srv/srv/app.js\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
