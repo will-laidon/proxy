@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start-main": "npm --prefix centralhub_main start",
-    "start-admin": "npm --prefix centralhub_admin start",
-    "start-all": "concurrently \"npm run start:main\" \"npm run start:admin\""
+    "main": "npm --prefix centralhub_main start",
+    "admin": "npm --prefix centralhub_admin start",
+    "all": "concurrently \"npm run start:main\" \"npm run start:admin\""
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
