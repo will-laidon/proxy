@@ -1,17 +1,13 @@
 import express, { Application, Request, Response } from 'express'
-
 import axios from 'axios'
-
-const app: Application = express()
-
 import config from 'dotenv'
-
 import * as _ from 'lodash'
+import chalk from 'chalk'
 
 config.config()
 
-const PORT = Number(process.env.PORT ?? 3000)
-
+const app: Application = express()
+const PORT = Number(process.env.PORT ?? 3001)
 const SERV_URL = `${process.env.SERV_URL ?? ''}`
 
 app.use(express.json())
@@ -20,58 +16,50 @@ app.use('/*', async (req: Request, res: Response) => {
   let request
 
   try {
-    // const clientToken  = await getClientToken();
+    console.log(chalk.magenta("[Proxy]", chalk.cyan(`${SERV_URL}${req.originalUrl}`)))
 
-    console.log(`${SERV_URL}${req.originalUrl}`)
-
-    // ADMIN ADMIN ADMIN ADMIN ADMIN ADMIN ADMIN
     request = await axios.request({
       method: req.method,
       url: `${SERV_URL}${req.originalUrl}`,
-      data: req?.body,
+      data: req.body,
       headers: {
         accept: 'application/json, text/plain, */*',
-        'accept-language': 'en-GB',
+        'accept-language': 'en-US',
         'application-interface-key': '52ve7fwy',
         'content-type': 'application/json',
         priority: 'u=1, i',
-        'sec-ch-ua': '"Brave";v="137", "Chromium";v="137", "Not/A)Brand";v="24"',
+        'sec-ch-ua': '"Not)A;Brand";v="8", "Chromium";v="138", "Brave";v="138"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"Windows"',
         'sec-fetch-dest': 'empty',
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
-        'x-correlation-id': 'smdg.dev@simplemdg.com',
-        'x-csrf-token': '06b8561a8d455a7b-Lh9rg8N0q7sA8anGgMr5M4WHTQc',
-        cookie: 'JSESSIONID=s%3A-Vr-aaoNO0Dx6fxNWcvG45SDjriyCr9g.0tnw27ECdVgvmw3JCdXvX1wjYgJ4vm9XCt%2B84YPAwSE; __VCAP_ID__=f0e364b4-5ac8-46d2-7c88-d921',
-        Referer: 'https://smdg-s4-dev-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
-        'Referrer-Policy': 'strict-origin-when-cross-origin',
+        'x-correlation-id': 'smdg.performance@laidon.com',
+        'x-csrf-token': '70693ebfab31a90b-F66Z8TsCB1Ur_7iPR9OQHxS3JVc',
+        cookie: 'JSESSIONID=s%3AnDHgs-oPlIU0_vBgrgzxyCjfpZF_TWUs.KxK6s6S3dr%2BwkO%2BKizwAa%2Br%2BkqiRHWvqYPfx8KIYQHQ; __VCAP_ID__=5dad3b90-da5b-49b4-6503-56bb',
+        Referer: 'https://smdg-performance-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
       },
     })
   } catch (error) {
     const status = error?.response?.status || 500
     const message = error?.response?.data || error?.message || 'Internal Server Error'
-    console.error('[Proxy Error]', status, message)
+    console.error(chalk.red('[Proxy Error]'), chalk.yellow(status.toString()), message)
     return res.status(status).send(message)
   }
 
   const headers = request.headers
-
-  _.unset(headers, 'transfer-encoding')
-
   const safeHeaders = _.omit(headers, ['transfer-encoding', 'connection', 'content-length'])
   res.set(safeHeaders)
 
-  let data = request?.data
-
+  let data = request.data
   if (_.isNumber(data)) {
     data = data.toString()
   }
 
-  return res.status(request?.status ?? 200).send(data)
+  return res.status(request.status ?? 200).send(data)
 })
 
 app.listen(PORT, (): void => {
-  console.log('SERVER IS UP ON PORT:', PORT)
+  console.log(chalk.green('SERVER IS UP ON PORT:'), chalk.yellow(PORT))
 })
