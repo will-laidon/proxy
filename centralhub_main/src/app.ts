@@ -23,6 +23,7 @@ app.use('/*', async (req: Request, res: Response) => {
       method: req.method,
       url: `${SERV_URL}${req.originalUrl}`,
       data: req.body,
+      // MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN
       headers: {
         accept: 'application/json, text/plain, */*',
         'accept-language': 'en-US',
@@ -36,10 +37,10 @@ app.use('/*', async (req: Request, res: Response) => {
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
-        'x-correlation-id': 'smdg.performance@laidon.com',
-        'x-csrf-token': '70693ebfab31a90b-F66Z8TsCB1Ur_7iPR9OQHxS3JVc',
-        cookie: 'JSESSIONID=s%3AnDHgs-oPlIU0_vBgrgzxyCjfpZF_TWUs.KxK6s6S3dr%2BwkO%2BKizwAa%2Br%2BkqiRHWvqYPfx8KIYQHQ; __VCAP_ID__=5dad3b90-da5b-49b4-6503-56bb',
-        Referer: 'https://smdg-performance-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
+        'x-correlation-id': 'single.ams@laidon.com',
+        'x-csrf-token': '66c4915b65793f2c-GHLDozcIfOnzEiQ426Xv0lnWCvc',
+        cookie: '__VCAP_ID__=cbc8b0ac-2332-415c-4fe3-5d4f; JSESSIONID=s%3A7TN9fZjqTbTcUtxA-T2-IfPdno6qjYRj.BYzgdGh%2BHDqJTlOkyoi%2FK9B%2FLEdmks5AAx15Cz0BiLY',
+        Referer: 'https://single-ams-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
       },
     })
   } catch (error) {

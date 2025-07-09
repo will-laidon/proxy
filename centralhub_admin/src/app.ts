@@ -16,12 +16,13 @@ app.use('/*', async (req: Request, res: Response) => {
   let request
 
   try {
-    console.log(chalk.magenta("[Proxy]", chalk.cyan(`${SERV_URL}${req.originalUrl}`)))
+    console.log(chalk.magenta('[Proxy]', chalk.cyan(`${SERV_URL}${req.originalUrl}`)))
 
     request = await axios.request({
       method: req.method,
       url: `${SERV_URL}${req.originalUrl}`,
       data: req.body,
+      // ADMIN ADMIN ADMIN ADMIN ADMIN ADMIN ADMIN ADMIN ADMIN ADMIN
       headers: {
         accept: 'application/json, text/plain, */*',
         'accept-language': 'en-US',
@@ -35,10 +36,10 @@ app.use('/*', async (req: Request, res: Response) => {
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
-        'x-correlation-id': 'smdg.performance@laidon.com',
-        'x-csrf-token': '70693ebfab31a90b-F66Z8TsCB1Ur_7iPR9OQHxS3JVc',
-        cookie: 'JSESSIONID=s%3AnDHgs-oPlIU0_vBgrgzxyCjfpZF_TWUs.KxK6s6S3dr%2BwkO%2BKizwAa%2Br%2BkqiRHWvqYPfx8KIYQHQ; __VCAP_ID__=5dad3b90-da5b-49b4-6503-56bb',
-        Referer: 'https://smdg-performance-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
+        'x-correlation-id': 'single.ams@laidon.com',
+        'x-csrf-token': 'e197a3c60765691c-ohjOOTw4QAgTDlHihAvY1MPFPUE',
+        cookie: '__VCAP_ID__=2b8c17e0-0355-4a37-4f95-7fbe; JSESSIONID=s%3Aqdz3AKVAA8KdaE3NkxaAHiEDXMwpcbeG.hDwcZMBHaC9aCoQ70rTcOH05w1YszRt8fSP%2BshWSkho',
+        Referer: 'https://single-ams-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
       },
     })
   } catch (error) {
