@@ -7,11 +7,10 @@ import chalk from 'chalk'
 config.config()
 
 const app: Application = express()
-const PORT = Number(process.env.PORT ?? 3000)
+const PORT = Number(process.env.PORT ?? 3001)
 const SERV_URL = `${process.env.SERV_URL ?? ''}`
 
-app.use(express.json({ limit: '10mb' }))
-app.use(express.urlencoded({ limit: '10mb' }))
+app.use(express.json())
 
 app.use('/*', async (req: Request, res: Response) => {
   let request
@@ -23,7 +22,6 @@ app.use('/*', async (req: Request, res: Response) => {
       method: req.method,
       url: `${SERV_URL}${req.originalUrl}`,
       data: req.body,
-      // MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN MAIN
       headers: {
         accept: 'application/json, text/plain, */*',
         'accept-language': 'en-US',
@@ -37,10 +35,10 @@ app.use('/*', async (req: Request, res: Response) => {
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
-        'x-correlation-id': 'single.ams@laidon.com',
-        'x-csrf-token': '66c4915b65793f2c-GHLDozcIfOnzEiQ426Xv0lnWCvc',
-        cookie: '__VCAP_ID__=cbc8b0ac-2332-415c-4fe3-5d4f; JSESSIONID=s%3A7TN9fZjqTbTcUtxA-T2-IfPdno6qjYRj.BYzgdGh%2BHDqJTlOkyoi%2FK9B%2FLEdmks5AAx15Cz0BiLY',
-        Referer: 'https://single-ams-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
+        'x-correlation-id': 'smdg.prestage@laidon.com',
+        'x-csrf-token': '41099da88a6fa065-8Ia65gNIaR8bPjnvD0g-3qPj5bM',
+        cookie: 'JSESSIONID=s%3AmEk47O_EXPGme1RGJ5l0RTT6NtKETUGW.JojqwOQqiwNkqbd6cChqPMNYKz7Wp5Uy61OJZGWdBXk; __VCAP_ID__=7516a7e5-1b26-4a7c-7e02-5309',
+        Referer: 'https://smdg-prestage-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
       },
     })
   } catch (error) {

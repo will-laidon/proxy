@@ -1,13 +1,32 @@
 {
-  "name": "proxyhub-root",
+  "name": "proxyhub",
   "version": "1.0.0",
-  "private": true,
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "main": "npm --prefix centralhub_main start",
-    "admin": "npm --prefix centralhub_admin start",
-    "all": "concurrently \"npm run start:main\" \"npm run start:admin\""
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "main": "cross-env PORT=3000 npm run serve",
+    "admin": "cross-env PORT=3001 npm run serve",
+    "serve": "concurrently \"tsc --watch\" \"nodemon ./gen/srv/srv/app.js\""
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "chalk": "^5.4.1",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.1",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "concurrently": "^9.1.2"
-  }
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.0.0",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
+    "nodemon": "^3.1.10",
+    "ts-node": "^10.9.2",
+    "typescript": "^4.7.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
