@@ -3,12 +3,11 @@ import axios from 'axios'
 import config from 'dotenv'
 import * as _ from 'lodash'
 import chalk from 'chalk'
+import { PORT, SERV_URL } from './config'
 
 config.config()
 
 const app: Application = express()
-const PORT = Number(process.env.PORT ?? 3001)
-const SERV_URL = `${process.env.SERV_URL ?? ''}`
 
 app.use(express.json())
 
@@ -35,10 +34,10 @@ app.use('/*', async (req: Request, res: Response) => {
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
-        'x-correlation-id': 'smdg.prestage@laidon.com',
-        'x-csrf-token': '41099da88a6fa065-8Ia65gNIaR8bPjnvD0g-3qPj5bM',
-        cookie: 'JSESSIONID=s%3AmEk47O_EXPGme1RGJ5l0RTT6NtKETUGW.JojqwOQqiwNkqbd6cChqPMNYKz7Wp5Uy61OJZGWdBXk; __VCAP_ID__=7516a7e5-1b26-4a7c-7e02-5309',
-        Referer: 'https://smdg-prestage-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
+        'x-correlation-id': 'teri.vo@laidon.com',
+        'x-csrf-token': '35d557e0cd477c5f-j2X0qxCGzgu2qgrrcumwsOSsz_c',
+        cookie: '__VCAP_ID__=35b491a8-d8b5-4b6d-4ec9-e1fb; JSESSIONID=s%3A22HjgR-lPfTpoEbpFLiqR311PIfRo7j2.ugBsqjeqVTAxd%2Frbn16BJQMeCueAc2pTcz963AP1BUo',
+        Referer: 'https://metrie-dev-simplemdg-web.cfapps.us10-001.hana.ondemand.com/main/index.html',
       },
     })
   } catch (error) {
