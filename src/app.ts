@@ -3,7 +3,7 @@ import axios from 'axios'
 import config from 'dotenv'
 import * as _ from 'lodash'
 import chalk from 'chalk'
-import { PORT, SERV_URL } from './config'
+import { PORT, SV_URL } from './config'
 
 config.config()
 
@@ -15,11 +15,11 @@ app.use('/*', async (req: Request, res: Response) => {
   let request
 
   try {
-    console.log(chalk.magenta('[Proxy]', chalk.cyan(`${SERV_URL}${req.originalUrl}`)))
+    console.log(chalk.magenta('[Proxy]', chalk.cyan(`${SV_URL}${req.originalUrl}`)))
 
     request = await axios.request({
       method: req.method,
-      url: `${SERV_URL}${req.originalUrl}`,
+      url: `${SV_URL}${req.originalUrl}`,
       data: req.body,
       headers: {
         accept: 'application/json, text/plain, */*',
@@ -27,17 +27,17 @@ app.use('/*', async (req: Request, res: Response) => {
         'application-interface-key': '52ve7fwy',
         'content-type': 'application/json',
         priority: 'u=1, i',
-        'sec-ch-ua': '"Not)A;Brand";v="8", "Chromium";v="138", "Brave";v="138"',
+        'sec-ch-ua': '"Not;A=Brand";v="99", "Brave";v="139", "Chromium";v="139"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': '"Windows"',
         'sec-fetch-dest': 'empty',
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
-        'x-correlation-id': 'teri.vo@laidon.com',
-        'x-csrf-token': '35d557e0cd477c5f-j2X0qxCGzgu2qgrrcumwsOSsz_c',
-        cookie: '__VCAP_ID__=35b491a8-d8b5-4b6d-4ec9-e1fb; JSESSIONID=s%3A22HjgR-lPfTpoEbpFLiqR311PIfRo7j2.ugBsqjeqVTAxd%2Frbn16BJQMeCueAc2pTcz963AP1BUo',
-        Referer: 'https://metrie-dev-simplemdg-web.cfapps.us10-001.hana.ondemand.com/main/index.html',
+        'x-correlation-id': 'admin@bsimpleapp.com',
+        'x-csrf-token': '36652de5519fc6ec-qkpMBVijMv-vXmEqh_stWifF76A',
+        cookie: 'JSESSIONID=s%3ASu-wWwl91EFsGBbm58dgAFLoqRrbtJ4x.TVA10f9QAy%2BKq0R5LL0uDNp5yFQ%2FnqvgF99rkoj9weI; __VCAP_ID__=729db2f9-4bd3-480a-5177-a2d3',
+        Referer: 'https://smdg-s4-qas-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
       },
     })
   } catch (error) {
