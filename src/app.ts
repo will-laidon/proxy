@@ -23,7 +23,7 @@ app.use('/*', async (req: Request, res: Response) => {
       data: req.body,
       headers: {
         accept: 'application/json, text/plain, */*',
-        'accept-language': 'en-US',
+        'accept-language': 'en',
         'application-interface-key': '52ve7fwy',
         'content-type': 'application/json',
         priority: 'u=1, i',
@@ -34,10 +34,10 @@ app.use('/*', async (req: Request, res: Response) => {
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
         'sec-gpc': '1',
-        'x-correlation-id': 'admin@bsimpleapp.com',
-        'x-csrf-token': '36652de5519fc6ec-qkpMBVijMv-vXmEqh_stWifF76A',
-        cookie: 'JSESSIONID=s%3ASu-wWwl91EFsGBbm58dgAFLoqRrbtJ4x.TVA10f9QAy%2BKq0R5LL0uDNp5yFQ%2FnqvgF99rkoj9weI; __VCAP_ID__=729db2f9-4bd3-480a-5177-a2d3',
-        Referer: 'https://smdg-s4-qas-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html',
+        'x-correlation-id': 'butterball.dev@laidon.com',
+        'x-csrf-token': '202f9a722d206bb9-eEP3jsSmqgNmm6-GEfX8ZEkuadU',
+        cookie: 'JSESSIONID=s%3ArxnXFeojaI9J2igE2EY9sMzthP_6wZyl.nIYZTeviUozln%2BRvbib9KxMo%2FY0PrbzLl68ZfV2dlrg; __VCAP_ID__=44cb6fe2-5f05-47ce-6da2-341f',
+        Referer: 'https://butterball-dev-simplemdg-web.cfapps.us21.hana.ondemand.com/main/index.html',
       },
     })
   } catch (error) {
@@ -61,4 +61,5 @@ app.use('/*', async (req: Request, res: Response) => {
 
 app.listen(PORT, (): void => {
   console.log(chalk.green('SERVER IS UP ON PORT:'), chalk.yellow(PORT))
+  console.log(chalk.white('SV_URL:'), chalk.yellow(SV_URL))
 })
