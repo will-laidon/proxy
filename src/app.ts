@@ -10,19 +10,20 @@ const app: Application = express()
 app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true, limit: '50mb' }))
 
-// app.use('/srv-requestor/RequestorService/getMigrationLogs', (req: Request, res: Response) => {
-//   return res.json()
-// })
+app.use('/srv-requestoor/RequestorService/getMigrationLogs', (req: Request, res: Response) => {
+  return res.json()
+})
 
-const PORT = 3000
+enum Ports {
+  MAIN = 3000,
+  ADMIN = 3001,
+}
 
-app.use('/*', async (req: Request, res: Response) => {
-  let request
+const PORT = Ports.ADMIN
 
-  try {
-    const headers ={
+const headers = {
     "accept": "application/json, text/plain, */*",
-    "accept-language": "en",
+    "accept-language": "en-US",
     "application-interface-key": "52ve7fwy",
     "content-type": "application/json",
     "priority": "u=1, i",
@@ -33,12 +34,16 @@ app.use('/*', async (req: Request, res: Response) => {
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "same-origin",
     "sec-gpc": "1",
-    "x-correlation-id": "leo.phan@laidon.com",
-    "x-csrf-token": "48433e9cb967eacc-UlDhtA1P0ZMR4UalB4X2AN_hZyc",
-    "cookie": "JSESSIONID=s%3A5CYpnqi4903yiSeQhv5cD3yE9sb2m_i7.aX0Uo5ogdtXwMroUG5UYScE7O%2FCzlMx6Z1bLyNTqtiM; __VCAP_ID__=434a2d14-68f7-4e0f-40eb-ee44",
-    "Referer": "https://edf-dev-simplemdg-web.cfapps.us10-001.hana.ondemand.com/main/index.html"
+    "x-correlation-id": "smdg.prestage@laidon.com",
+    "x-csrf-token": "a49c8bc84eb0c5ec-AoZQPAEx2mj2MOupDzCBonWlv10",
+    "cookie": "__VCAP_ID__=bc0fc02b-8478-4357-7fe1-2326; JSESSIONID=s%3AihTltLrUS_j5dEtCA1UoO5C511tK8wkC.K4M2jzx1T6YdPHUx5CZlP5faqlIhqE4%2B1BAINS6NmeQ",
+    "Referer": "https://smdg-prestage-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html"
   }
 
+app.use('/*', async (req: Request, res: Response) => {
+  let request
+
+  try {
     const SV_URL = new URL(headers.Referer).origin
 
     console.log(chalk.magenta('[Proxy]', chalk.cyan(`${SV_URL}${req.originalUrl}`)))
@@ -55,8 +60,7 @@ app.use('/*', async (req: Request, res: Response) => {
     return res.status(status).send(message)
   }
 
-  const headers = request.headers
-  const safeHeaders = _.omit(headers, ['transfer-encoding', 'connection', 'content-length'])
+  const safeHeaders = _.omit(request.headers, ['transfer-encoding', 'connection', 'content-length'])
   res.set(safeHeaders)
 
   let data = request.data
