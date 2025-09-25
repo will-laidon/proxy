@@ -19,7 +19,7 @@ enum Ports {
   ADMIN = 3001,
 }
 
-const PORT = Ports.ADMIN
+const PORT = Ports.MAIN
 
 const headers = {
     "accept": "application/json, text/plain, */*",
@@ -34,10 +34,10 @@ const headers = {
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "same-origin",
     "sec-gpc": "1",
-    "x-correlation-id": "smdg.prestage@laidon.com",
-    "x-csrf-token": "a49c8bc84eb0c5ec-AoZQPAEx2mj2MOupDzCBonWlv10",
-    "cookie": "__VCAP_ID__=bc0fc02b-8478-4357-7fe1-2326; JSESSIONID=s%3AihTltLrUS_j5dEtCA1UoO5C511tK8wkC.K4M2jzx1T6YdPHUx5CZlP5faqlIhqE4%2B1BAINS6NmeQ",
-    "Referer": "https://smdg-prestage-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html"
+    "x-correlation-id": "amber.nguyen@laidon.com",
+    "x-csrf-token": "0ea664221e5ab50d-Tfh1etb0-l7FPPkqdByeH1R9_Jk",
+    "cookie": "__VCAP_ID__=65b099ba-8f42-497a-671c-df89; JSESSIONID=s%3A2QN5qe8l74Zd_4cDadf1-Cu5MxBlOXuW.Tg4X%2FN1TcmqHkHTgo53%2BnI6iQRxUWoUuG4Pr6B1cgWY",
+    "Referer": "https://edf-qep-simplemdg-web.cfapps.us21.hana.ondemand.com/main/index.html"
   }
 
 app.use('/*', async (req: Request, res: Response) => {
