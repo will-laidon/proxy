@@ -7,21 +7,14 @@ import chalk from 'chalk'
 config.config()
 
 const app: Application = express()
-app.use(express.json({ limit: '50mb' }))
-app.use(express.urlencoded({ extended: true, limit: '50mb' }))
-
-app.use('/srv-requestoor/RequestorService/getMigrationLogs', (req: Request, res: Response) => {
-  return res.json()
-})
 
 enum Ports {
   MAIN = 3000,
   ADMIN = 3001,
 }
-
 const PORT = Ports.MAIN
 
-const headers = {
+const headers =  {
     "accept": "application/json, text/plain, */*",
     "accept-language": "en-US",
     "application-interface-key": "52ve7fwy",
@@ -35,40 +28,88 @@ const headers = {
     "sec-fetch-site": "same-origin",
     "sec-gpc": "1",
     "x-correlation-id": "amber.nguyen@laidon.com",
-    "x-csrf-token": "0ea664221e5ab50d-Tfh1etb0-l7FPPkqdByeH1R9_Jk",
-    "cookie": "__VCAP_ID__=65b099ba-8f42-497a-671c-df89; JSESSIONID=s%3A2QN5qe8l74Zd_4cDadf1-Cu5MxBlOXuW.Tg4X%2FN1TcmqHkHTgo53%2BnI6iQRxUWoUuG4Pr6B1cgWY",
+    "x-csrf-token": "e658b93b0731c3f9-FpgWETauMRvYYWT0loC2aKD8GZ4",
+    "cookie": "__VCAP_ID__=88d21143-f7ac-4daf-5767-30d5; JSESSIONID=s%3AfXjrWniPJJhX0spr-w3OWBPic7UGXCno.liNWNBdxG0rlp6pkxs9ErnbXrGxncOuAriCC4VEAqHg",
     "Referer": "https://edf-qep-simplemdg-web.cfapps.us21.hana.ondemand.com/main/index.html"
   }
 
+// IMPORTANT: put the proxy route BEFORE json/urlencoded middlewares and use a raw body
 app.use('/*', async (req: Request, res: Response) => {
-  let request
-
   try {
     const SV_URL = new URL(headers.Referer).origin
+    const targetUrl = `${SV_URL}${req.originalUrl}`
 
-    console.log(chalk.magenta('[Proxy]', chalk.cyan(`${SV_URL}${req.originalUrl}`)))
-    request = await axios.request({
-      method: req.method,
-      url: `${SV_URL}${req.originalUrl}`,
-      data: req.body,
-      headers,
+    console.log(chalk.magenta('[Proxy]'), chalk.cyan(targetUrl))
+
+    const upstream = await axios.request({
+      method: req.method as any,
+      url: targetUrl,
+      data: req.body,               // keep old parsers & behavior
+      headers,                      // your existing upstream headers
+      responseType: 'stream',       // stream everything; we’ll branch below
+      validateStatus: () => true,
+      maxBodyLength: Infinity,
+      maxContentLength: Infinity,
     })
-  } catch (error) {
+
+    // Determine if it's JSON/text vs binary
+    const ct = String(upstream.headers['content-type'] || '').toLowerCase()
+    const isTextual =
+      ct.includes('application/json') ||
+      ct.startsWith('text/') ||
+      ct.includes('xml') ||
+      ct.includes('javascript')
+
+    // Pass through headers (skip hop-by-hop). If we reserialize text/JSON,
+    // drop content-length because the size can change.
+    const hopByHop = new Set([
+      'connection','transfer-encoding','keep-alive','proxy-authenticate',
+      'proxy-authorization','te','trailer','upgrade'
+    ])
+    for (const [k, v] of Object.entries(upstream.headers)) {
+      const key = k.toLowerCase()
+      if (hopByHop.has(key)) continue
+      if (isTextual && key === 'content-length') continue
+      if (v != null) res.setHeader(k, String(v))
+    }
+
+    res.status(upstream.status ?? 200)
+
+    if (!isTextual) {
+      // === Binary path (images, pdf, etc.) — keep bytes exactly the same ===
+      if (req.method === 'HEAD') return res.end()
+      return (upstream.data as NodeJS.ReadableStream).pipe(res)
+    }
+
+    // === Text/JSON path — keep old semantics ===
+    const chunks: Buffer[] = []
+    for await (const chunk of upstream.data as NodeJS.ReadableStream) {
+      chunks.push(Buffer.isBuffer(chunk) ? chunk : Buffer.from(chunk))
+    }
+    const bodyBuf = Buffer.concat(chunks)
+
+    if (ct.includes('application/json')) {
+      // Axios previously gave you parsed JSON; preserve that by parsing here.
+      try {
+        const json = JSON.parse(bodyBuf.toString('utf8'))
+        return res.send(json)                 // Express sets content-type/length
+      } catch {
+        // If upstream sent invalid JSON with JSON header, just forward as text
+        return res.send(bodyBuf.toString('utf8'))
+      }
+    }
+
+    // text/*, xml, js, etc. — forward as text
+    return res.send(bodyBuf.toString('utf8'))
+
+  } catch (error: any) {
     const status = error?.response?.status || 500
     const message = error?.response?.data || error?.message || 'Internal Server Error'
-    console.error(chalk.red('[Proxy Error]'), chalk.yellow(status.toString()), message)
+    console.error(chalk.red('[Proxy Error]'), chalk.yellow(String(status)), message)
+    // If upstream error body is binary, end with buffer; else send text
+    if (Buffer.isBuffer(message)) return res.status(status).end(message)
     return res.status(status).send(message)
   }
-
-  const safeHeaders = _.omit(request.headers, ['transfer-encoding', 'connection', 'content-length'])
-  res.set(safeHeaders)
-
-  let data = request.data
-  if (_.isNumber(data)) {
-    data = data.toString()
-  }
-
-  return res.status(request.status ?? 200).send(data)
 })
 
 app.listen(PORT, (): void => {
