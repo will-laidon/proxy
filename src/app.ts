@@ -3,6 +3,7 @@ import axios from 'axios'
 import config from 'dotenv'
 import * as _ from 'lodash'
 import chalk from 'chalk'
+import { extractHeadersFromAxiosCode } from './utils'
 
 config.config()
 
@@ -19,26 +20,33 @@ enum Ports {
   ADMIN = 3001,
 }
 
-const PORT = Ports.MAIN
+const PORT = Ports.ADMIN  
 
-const headers = {
+const raw = String.raw`fetch("https://morgan-foods-dev-simplemdg-web.cfapps.us20.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequestSteward", {
+  "headers": {
     "accept": "application/json, text/plain, */*",
     "accept-language": "en-US",
     "application-interface-key": "52ve7fwy",
     "content-type": "application/json",
     "priority": "u=1, i",
-    "sec-ch-ua": "\"Chromium\";v=\"140\", \"Not=A?Brand\";v=\"24\", \"Brave\";v=\"140\"",
+    "sec-ch-ua": "\"Brave\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
     "sec-ch-ua-mobile": "?0",
     "sec-ch-ua-platform": "\"Windows\"",
     "sec-fetch-dest": "empty",
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "same-origin",
     "sec-gpc": "1",
-    "x-correlation-id": "amber.nguyen@laidon.com",
-    "x-csrf-token": "0ea664221e5ab50d-Tfh1etb0-l7FPPkqdByeH1R9_Jk",
-    "cookie": "__VCAP_ID__=65b099ba-8f42-497a-671c-df89; JSESSIONID=s%3A2QN5qe8l74Zd_4cDadf1-Cu5MxBlOXuW.Tg4X%2FN1TcmqHkHTgo53%2BnI6iQRxUWoUuG4Pr6B1cgWY",
-    "Referer": "https://edf-qep-simplemdg-web.cfapps.us21.hana.ondemand.com/main/index.html"
-  }
+    "x-correlation-id": "morganfoods.dev@laidon.com",
+    "x-csrf-token": "9f20d7f19afadb94-121Qj_u79FInxHkLsOC0uX3-Qmw",
+    "cookie": "JSESSIONID=s%3AuGJHnCxulbtHFQPQqxqym5K7K9So6VGC.64BKvb7xmhSab9N4PMvLJKQrS7DuhOFi5ANQ4GC2oFw; __VCAP_ID__=056f4a90-35fc-493c-5ed4-6150",
+    "Referer": "https://morgan-foods-dev-simplemdg-web.cfapps.us20.hana.ondemand.com/main/index.html"
+  },
+  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"REWORKED\",\"objectType\":\"\",\"slaID\":\"\",\"isScheduled\":false,\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"sortBy\":[],\"createdBy\":[]}}",
+  "method": "POST"
+});`
+
+
+const headers = extractHeadersFromAxiosCode(raw)
 
 app.use('/*', async (req: Request, res: Response) => {
   let request
