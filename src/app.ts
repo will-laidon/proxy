@@ -8,6 +8,7 @@ import { extractHeadersFromAxiosCode } from './utils'
 config.config()
 
 const app: Application = express()
+
 app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true, limit: '50mb' }))
 
@@ -16,44 +17,42 @@ app.use('/srv-requestoor/RequestorService/getMigrationLogs', (req: Request, res:
 })
 
 enum Ports {
-  MAIN = 3000,
-  ADMIN = 3001,
+  M = 3000,
+  A = 3001,
 }
 
-const PORT = Ports.ADMIN  
+const PORT = Ports.M
 
-const raw = String.raw`fetch("https://morgan-foods-dev-simplemdg-web.cfapps.us20.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequestSteward", {
+const raw = String.raw`fetch("https://amman-mineral-qas-simplemdg-web.cfapps.ap11.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequestSteward", {
   "headers": {
     "accept": "application/json, text/plain, */*",
     "accept-language": "en-US",
     "application-interface-key": "52ve7fwy",
     "content-type": "application/json",
     "priority": "u=1, i",
-    "sec-ch-ua": "\"Brave\";v=\"141\", \"Not?A_Brand\";v=\"8\", \"Chromium\";v=\"141\"",
+    "sec-ch-ua": "\"Chromium\";v=\"142\", \"Brave\";v=\"142\", \"Not_A Brand\";v=\"99\"",
     "sec-ch-ua-mobile": "?0",
     "sec-ch-ua-platform": "\"Windows\"",
     "sec-fetch-dest": "empty",
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "same-origin",
     "sec-gpc": "1",
-    "x-correlation-id": "morganfoods.dev@laidon.com",
-    "x-csrf-token": "9f20d7f19afadb94-121Qj_u79FInxHkLsOC0uX3-Qmw",
-    "cookie": "JSESSIONID=s%3AuGJHnCxulbtHFQPQqxqym5K7K9So6VGC.64BKvb7xmhSab9N4PMvLJKQrS7DuhOFi5ANQ4GC2oFw; __VCAP_ID__=056f4a90-35fc-493c-5ed4-6150",
-    "Referer": "https://morgan-foods-dev-simplemdg-web.cfapps.us20.hana.ondemand.com/main/index.html"
+    "x-correlation-id": "amman.qas@laidon.com",
+    "x-csrf-token": "dab01b5db73e2952--7WTd4O4yIidNd8Le3R59gqu2ZQ",
+    "cookie": "JSESSIONID=s%3ARNb6DplJQ6BEsOkS5zeeMj-jZfIXVs2Q.7yEAc1X17s5dk927HolzbPOyhi%2Bvi%2Bf4loSD2jjmyVk; __VCAP_ID__=bd1884d0-de57-4602-450f-dad2",
+    "Referer": "https://amman-mineral-qas-simplemdg-web.cfapps.ap11.hana.ondemand.com/main/index.html"
   },
-  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"REWORKED\",\"objectType\":\"\",\"slaID\":\"\",\"isScheduled\":false,\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"sortBy\":[],\"createdBy\":[]}}",
+  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"objectType\":\"\",\"slaID\":\"\",\"isScheduled\":false,\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"sortBy\":[],\"createdBy\":[]}}",
   "method": "POST"
 });`
 
-
 const headers = extractHeadersFromAxiosCode(raw)
+const SV_URL = new URL(headers.Referer).origin
 
 app.use('/*', async (req: Request, res: Response) => {
   let request
 
   try {
-    const SV_URL = new URL(headers.Referer).origin
-
     console.log(chalk.magenta('[Proxy]', chalk.cyan(`${SV_URL}${req.originalUrl}`)))
     request = await axios.request({
       method: req.method,
@@ -81,4 +80,5 @@ app.use('/*', async (req: Request, res: Response) => {
 
 app.listen(PORT, (): void => {
   console.log(chalk.green('SERVER IS UP ON PORT:'), chalk.yellow(PORT))
+  console.log(chalk.cyanBright.bold('SV_URL:'), chalk.underline.blueBright(SV_URL))
 })
