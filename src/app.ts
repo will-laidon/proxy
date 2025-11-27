@@ -12,18 +12,25 @@ const app: Application = express()
 app.use(express.json({ limit: '50mb' }))
 app.use(express.urlencoded({ extended: true, limit: '50mb' }))
 
-app.use('/srv-requestoor/RequestorService/getMigrationLogs', (req: Request, res: Response) => {
-  return res.json()
-})
+// app.use('/srv-main/MainService/ServiceLevelAgreements', (req: Request, res: Response) => {
+//   return res.json()
+// })
+
+
+// app.use('/srv-approver/ApproverService/myInboxMass', (req: Request, res: Response) => {
+//   return res.json()
+// })
 
 enum Ports {
   M = 3000,
   A = 3001,
 }
 
-const PORT = Ports.M
+const PORT = Number(process.env.PORT) || Ports.A
+console.log('process.env.PORT: ', process.env.PORT)
 
-const raw = String.raw`fetch("https://amman-mineral-qas-simplemdg-web.cfapps.ap11.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequestSteward", {
+
+const raw = String.raw`fetch("https://smdg-prestage-simplemdg-web.cfapps.br10.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequest", {
   "headers": {
     "accept": "application/json, text/plain, */*",
     "accept-language": "en-US",
@@ -37,12 +44,12 @@ const raw = String.raw`fetch("https://amman-mineral-qas-simplemdg-web.cfapps.ap1
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "same-origin",
     "sec-gpc": "1",
-    "x-correlation-id": "amman.qas@laidon.com",
-    "x-csrf-token": "dab01b5db73e2952--7WTd4O4yIidNd8Le3R59gqu2ZQ",
-    "cookie": "JSESSIONID=s%3ARNb6DplJQ6BEsOkS5zeeMj-jZfIXVs2Q.7yEAc1X17s5dk927HolzbPOyhi%2Bvi%2Bf4loSD2jjmyVk; __VCAP_ID__=bd1884d0-de57-4602-450f-dad2",
-    "Referer": "https://amman-mineral-qas-simplemdg-web.cfapps.ap11.hana.ondemand.com/main/index.html"
+    "x-correlation-id": "smdg.prestage@laidon.com",
+    "x-csrf-token": "b551fa23eb27e37a-q56JZ2dQuc1Z5JDrldRtKcl-lwk",
+    "cookie": "JSESSIONID=s%3AR7tdChz99vqXdoP4ZadVBvBbQ4vri4R4.CkS%2B%2F7YxEMQp77ALinmEsrGWtl0y69tZLcQjYeH5QUU; __VCAP_ID__=66703ad2-0ba4-4339-7180-ef8f",
+    "Referer": "https://smdg-prestage-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html"
   },
-  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"objectType\":\"\",\"slaID\":\"\",\"isScheduled\":false,\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"sortBy\":[],\"createdBy\":[]}}",
+  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"isScheduled\":false,\"objectType\":\"\",\"slaID\":\"\",\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"createdBy\":[\"smdg.prestage@laidon.com\"],\"sortBy\":[\"modifiedAt\",\"DESC\"]}}",
   "method": "POST"
 });`
 
