@@ -8,7 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "main": "cross-env PORT=3000 npm run start",
     "admin": "cross-env PORT=3001 npm run start",
-    "start": "concurrently \"tsc --watch\" \"nodemon ./gen/srv/srv/app.js\""
+    "start": "concurrently \"tsc --watch\" \"nodemon ./gen/srv/app.js\""
   },
   "dependencies": {
     "axios": "^1.4.0",

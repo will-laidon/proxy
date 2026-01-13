@@ -6,7 +6,7 @@
       "esModuleInterop": true,
       "sourceMap": true,
       "inlineSources": true,
-      "outDir": "./gen/srv/srv",
+      "outDir": "./gen/srv",
       "resolveJsonModule": true,
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
