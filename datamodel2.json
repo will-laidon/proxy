@@ -1,0 +1,847 @@
+{
+  "businessTable": "prd.model.final.Product",
+  "parentSectionID": "",
+  "sectionID": "ROOT",
+  "sectionIndex": 0,
+  "sectionName": "Root",
+  "tempID": "2W_SM_MM01",
+  "values": [
+    {
+      "actions": {
+        "MDGInsertionFlag": "ACTIVE",
+        "MDGDeletionFlag": "",
+        "MDGExistingFlag": false
+      },
+      "sections": [
+        {
+          "businessTable": "prd.model.final.ProductMapping",
+          "parentSectionID": "ROOT",
+          "sectionID": "TARGETSYSTEM",
+          "sectionIndex": 0,
+          "sectionName": "Target System",
+          "tempID": "2W_SM_MM01",
+          "values": [
+            {
+              "actions": {
+                "MDGInsertionFlag": "ACTIVE",
+                "MDGDeletionFlag": "",
+                "MDGExistingFlag": false
+              },
+              "sections": [],
+              "fields": [
+                {
+                  "businessField": "ERPSystem",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "1.0",
+                  "fieldLabel": "ERPSystem",
+                  "fieldName": "ERPSystem",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "ERPSystem",
+                  "sourceData": "{\"additionalFilter\":\"targetSystem ne 'CENTRAL'\",\"allowShowDescription\":false,\"display\":[\"targetSystem\"],\"entity\":\"UIMDTargetSystem\",\"fields\":[\"targetSystem\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"targetSystem\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                  "sourceType": "CUSTOMVIEW",
+                  "tempID": "2W_SM_MM01",
+                  "value": "S4",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "values/0/sections/0/values/0/fields/0/"
+                  }
+                },
+                {
+                  "businessField": "ERPproduct",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "2.0",
+                  "fieldLabel": "ERPproduct",
+                  "fieldName": "ERPproduct",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "ERP Material Number",
+                  "sourceData": "",
+                  "sourceType": "",
+                  "tempID": "2W_SM_MM01",
+                  "value": null,
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "values/0/sections/0/values/0/fields/1/"
+                  }
+                },
+                {
+                  "businessField": "product",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "3.0",
+                  "fieldLabel": "product",
+                  "fieldName": "product",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "SMDG Material Number",
+                  "sourceData": "",
+                  "sourceType": "",
+                  "tempID": "2W_SM_MM01",
+                  "value": null,
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "values/0/sections/0/values/0/fields/2/"
+                  }
+                }
+              ],
+              "isRuleGenerated": true,
+              "indicator": 1
+            },
+            {
+              "actions": {
+                "MDGInsertionFlag": "ACTIVE",
+                "MDGDeletionFlag": "",
+                "MDGExistingFlag": false
+              },
+              "sections": [],
+              "fields": [
+                {
+                  "businessField": "ERPSystem",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "1.0",
+                  "fieldLabel": "ERPSystem",
+                  "fieldName": "ERPSystem",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "ERPSystem",
+                  "sourceData": "{\"additionalFilter\":\"targetSystem ne 'CENTRAL'\",\"allowShowDescription\":false,\"display\":[\"targetSystem\"],\"entity\":\"UIMDTargetSystem\",\"fields\":[\"targetSystem\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"targetSystem\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                  "sourceType": "CUSTOMVIEW",
+                  "tempID": "2W_SM_MM01",
+                  "value": "ECC",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "values/0/sections/0/values/1/fields/0/"
+                  }
+                },
+                {
+                  "businessField": "ERPproduct",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "2.0",
+                  "fieldLabel": "ERPproduct",
+                  "fieldName": "ERPproduct",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "ERP Material Number",
+                  "sourceData": "",
+                  "sourceType": "",
+                  "tempID": "2W_SM_MM01",
+                  "value": null,
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "values/0/sections/0/values/1/fields/1/"
+                  }
+                },
+                {
+                  "businessField": "product",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "3.0",
+                  "fieldLabel": "product",
+                  "fieldName": "product",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "SMDG Material Number",
+                  "sourceData": "",
+                  "sourceType": "",
+                  "tempID": "2W_SM_MM01",
+                  "value": null,
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "values/0/sections/0/values/1/fields/2/"
+                  }
+                }
+              ],
+              "isRuleGenerated": true,
+              "indicator": 2
+            },
+            {
+              "actions": {
+                "MDGInsertionFlag": "ACTIVE",
+                "MDGDeletionFlag": "",
+                "MDGExistingFlag": false
+              },
+              "sections": [],
+              "fields": [
+                {
+                  "businessField": "ERPSystem",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "1.0",
+                  "fieldLabel": "ERPSystem",
+                  "fieldName": "ERPSystem",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "ERPSystem",
+                  "sourceData": "{\"additionalFilter\":\"targetSystem ne 'CENTRAL'\",\"allowShowDescription\":false,\"display\":[\"targetSystem\"],\"entity\":\"UIMDTargetSystem\",\"fields\":[\"targetSystem\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"targetSystem\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                  "sourceType": "CUSTOMVIEW",
+                  "tempID": "2W_SM_MM01",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "fields/0/",
+                    "selectedMDData": {
+                      "description": "WWWW2",
+                      "isActive": true,
+                      "targetSystem": "WIL2"
+                    }
+                  },
+                  "value": "WIL2",
+                  "keyFieldValue": "WIL2"
+                },
+                {
+                  "businessField": "ERPproduct",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "2.0",
+                  "fieldLabel": "ERPproduct",
+                  "fieldName": "ERPproduct",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "ERP Material Number",
+                  "sourceData": "",
+                  "sourceType": "",
+                  "tempID": "2W_SM_MM01",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "fields/1/"
+                  },
+                  "value": null
+                },
+                {
+                  "businessField": "product",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "3.0",
+                  "fieldLabel": "product",
+                  "fieldName": "product",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "SMDG Material Number",
+                  "sourceData": "",
+                  "sourceType": "",
+                  "tempID": "2W_SM_MM01",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "fields/2/"
+                  },
+                  "value": null
+                }
+              ],
+              "canBeApproved": true
+            },
+            {
+              "actions": {
+                "MDGInsertionFlag": "ACTIVE",
+                "MDGDeletionFlag": "",
+                "MDGExistingFlag": false
+              },
+              "sections": [],
+              "fields": [
+                {
+                  "businessField": "ERPSystem",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "1.0",
+                  "fieldLabel": "ERPSystem",
+                  "fieldName": "ERPSystem",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "ERPSystem",
+                  "sourceData": "{\"additionalFilter\":\"targetSystem ne 'CENTRAL'\",\"allowShowDescription\":false,\"display\":[\"targetSystem\"],\"entity\":\"UIMDTargetSystem\",\"fields\":[\"targetSystem\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"targetSystem\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                  "sourceType": "CUSTOMVIEW",
+                  "tempID": "2W_SM_MM01",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "fields/0/",
+                    "selectedMDData": {
+                      "description": "WILL1",
+                      "isActive": true,
+                      "targetSystem": "WILL"
+                    }
+                  },
+                  "value": "WILL",
+                  "keyFieldValue": "WILL"
+                },
+                {
+                  "businessField": "ERPproduct",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "2.0",
+                  "fieldLabel": "ERPproduct",
+                  "fieldName": "ERPproduct",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "ERP Material Number",
+                  "sourceData": "",
+                  "sourceType": "",
+                  "tempID": "2W_SM_MM01",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "fields/1/"
+                  },
+                  "value": null
+                },
+                {
+                  "businessField": "product",
+                  "businessTable": "prd.model.final.ProductMapping",
+                  "fieldIndex": "3.0",
+                  "fieldLabel": "product",
+                  "fieldName": "product",
+                  "keyField": false,
+                  "sectionID": "TARGETSYSTEM",
+                  "shortFieldLabel": "SMDG Material Number",
+                  "sourceData": "",
+                  "sourceType": "",
+                  "tempID": "2W_SM_MM01",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "fields/2/"
+                  },
+                  "value": null
+                }
+              ],
+              "canBeApproved": true
+            }
+          ],
+          "additionalProps": {
+            "visible": null,
+            "path": "values/0/sections/0/"
+          }
+        },
+        {
+          "businessTable": "prd.model.final.Product",
+          "parentSectionID": "ROOT",
+          "sectionID": "GENERAL",
+          "sectionIndex": 1,
+          "sectionName": "General Data",
+          "tempID": "2W_SM_MM01",
+          "values": [
+            {
+              "actions": {
+                "MDGInsertionFlag": "ACTIVE",
+                "MDGDeletionFlag": "",
+                "MDGExistingFlag": false
+              },
+              "sections": [
+                {
+                  "businessTable": "prd.model.final.Product",
+                  "parentSectionID": "GENERAL",
+                  "sectionID": "BASIC",
+                  "sectionIndex": 0,
+                  "sectionName": "Basic Data",
+                  "tempID": "2W_SM_MM01",
+                  "values": [
+                    {
+                      "actions": {
+                        "MDGInsertionFlag": "ACTIVE",
+                        "MDGDeletionFlag": "",
+                        "MDGExistingFlag": false
+                      },
+                      "sections": [],
+                      "fields": [
+                        {
+                          "businessField": "product",
+                          "businessTable": "prd.model.final.Product",
+                          "fieldIndex": "1.0",
+                          "fieldLabel": "product",
+                          "fieldName": "product",
+                          "keyField": false,
+                          "sectionID": "BASIC",
+                          "shortFieldLabel": "Product",
+                          "sourceData": "",
+                          "sourceType": "",
+                          "tempID": "2W_SM_MM01",
+                          "value": null,
+                          "additionalProps": {
+                            "visible": null,
+                            "path": "values/0/sections/1/values/0/sections/0/values/0/fields/0/"
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "values/0/sections/1/values/0/sections/0/"
+                  }
+                }
+              ],
+              "fields": []
+            }
+          ],
+          "additionalProps": {
+            "visible": null,
+            "path": "values/0/sections/1/"
+          }
+        },
+        {
+          "businessTable": "prd.model.final.ProductPlant",
+          "parentSectionID": "ROOT",
+          "sectionID": "PLANTDATA",
+          "sectionIndex": 2,
+          "sectionName": "Plant Data",
+          "tempID": "2W_SM_MM01",
+          "values": [
+            {
+              "actions": {
+                "MDGInsertionFlag": "ACTIVE",
+                "MDGDeletionFlag": "",
+                "MDGExistingFlag": false
+              },
+              "sections": [
+                {
+                  "businessTable": "prd.model.final.ProductPlantMapping",
+                  "parentSectionID": "PLANTDATA",
+                  "sectionID": "PLANTDATAMAPPING",
+                  "sectionIndex": 0,
+                  "sectionName": "Plant Local Data",
+                  "tempID": "2W_SM_MM01",
+                  "values": [
+                    {
+                      "actions": {
+                        "MDGInsertionFlag": "ACTIVE",
+                        "MDGDeletionFlag": "",
+                        "MDGExistingFlag": false
+                      },
+                      "sections": [],
+                      "fields": [
+                        {
+                          "businessField": "ERPSystem",
+                          "businessTable": "prd.model.final.ProductPlantMapping",
+                          "fieldIndex": "1.0",
+                          "fieldLabel": "ERPSystem",
+                          "fieldName": "ERPSystem",
+                          "keyField": false,
+                          "sectionID": "PLANTDATAMAPPING",
+                          "shortFieldLabel": "ERPSystem",
+                          "sourceData": "{\"additionalFilter\":\"targetSystem ne 'CENTRAL'\",\"allowShowDescription\":false,\"display\":[\"targetSystem\"],\"entity\":\"UIMDTargetSystem\",\"fields\":[\"targetSystem\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"targetSystem\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                          "sourceType": "CUSTOMVIEW",
+                          "tempID": "2W_SM_MM01",
+                          "additionalProps": {
+                            "visible": null,
+                            "path": "fields/0/",
+                            "selectedMDData": {
+                              "description": "S4 System",
+                              "isActive": true,
+                              "targetSystem": "S4"
+                            }
+                          },
+                          "value": "S4",
+                          "keyFieldValue": "S4"
+                        },
+                        {
+                          "businessField": "ERPpurchasingGroup",
+                          "businessTable": "prd.model.final.ProductPlantMapping",
+                          "fieldIndex": "2.0",
+                          "fieldLabel": "ERPpurchasingGroup",
+                          "fieldName": "ERPpurchasingGroup",
+                          "keyField": false,
+                          "sectionID": "PLANTDATAMAPPING",
+                          "shortFieldLabel": "Purchasing Group",
+                          "sourceData": "{\"additionalFilter\":\"\",\"allowShowDescription\":false,\"display\":[\"purchasingGroup\",\"description\"],\"entity\":\"UIMDPurchasingGroup\",\"fields\":[\"purchasingGroup\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"purchasingGroup\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                          "sourceType": "CUSTOMVIEW",
+                          "tempID": "2W_SM_MM01",
+                          "additionalProps": {
+                            "visible": null,
+                            "path": "fields/1/",
+                            "selectedMDData": {
+                              "description": "Einkäufer 3",
+                              "isActive": true,
+                              "purchasingGroup": "003"
+                            }
+                          },
+                          "value": "003",
+                          "keyFieldValue": "003"
+                        }
+                      ],
+                      "canBeApproved": true
+                    }
+                  ],
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "sections/0/"
+                  }
+                },
+                {
+                  "businessTable": "prd.model.final.ProductStorageLocation",
+                  "parentSectionID": "PLANTDATA",
+                  "sectionID": "STORAGELOCATION",
+                  "sectionIndex": 1,
+                  "sectionName": "Storage Location",
+                  "tempID": "2W_SM_MM01",
+                  "values": [
+                    {
+                      "actions": {
+                        "MDGInsertionFlag": "ACTIVE",
+                        "MDGDeletionFlag": "",
+                        "MDGExistingFlag": false
+                      },
+                      "sections": [],
+                      "fields": [
+                        {
+                          "businessField": "targetSystemProductStorageLocation",
+                          "businessTable": "prd.model.final.ProductStorageLocation",
+                          "fieldIndex": "1.0",
+                          "fieldLabel": "targetSystemProductStorageLocation",
+                          "fieldName": "targetSystemProductStorageLocation",
+                          "keyField": false,
+                          "sectionID": "STORAGELOCATION",
+                          "shortFieldLabel": "Target System Product Storage Location",
+                          "sourceData": "{\"additionalFilter\":\"\",\"allowShowDescription\":false,\"display\":[\"targetSystem\"],\"entity\":\"UIMDTargetSystem\",\"fields\":[\"targetSystem\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"targetSystem\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                          "sourceType": "CUSTOMVIEW",
+                          "tempID": "2W_SM_MM01",
+                          "additionalProps": {
+                            "visible": null,
+                            "path": "fields/0/",
+                            "selectedMDData": {
+                              "description": "CENTRAL",
+                              "isActive": true,
+                              "targetSystem": "CENTRAL"
+                            }
+                          },
+                          "value": "CENTRAL",
+                          "keyFieldValue": "CENTRAL"
+                        },
+                        {
+                          "businessField": "storageLocation",
+                          "businessTable": "prd.model.final.ProductStorageLocation",
+                          "fieldIndex": "2.0",
+                          "fieldLabel": "storageLocation",
+                          "fieldName": "storageLocation",
+                          "keyField": false,
+                          "sectionID": "STORAGELOCATION",
+                          "shortFieldLabel": "Storage Location",
+                          "sourceData": "{\"additionalFilter\":\"\",\"allowShowDescription\":false,\"display\":[\"storageLocation\",\"description\"],\"entity\":\"UIMDStorageLocation\",\"fields\":[\"plant\",\"storageLocation\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"storageLocation\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                          "sourceType": "CUSTOMVIEW",
+                          "tempID": "2W_SM_MM01",
+                          "additionalProps": {
+                            "visible": null,
+                            "path": "fields/1/",
+                            "targetRule": {
+                              "configRules": [
+                                {
+                                  "configType": "FILTER",
+                                  "configValue": "plant",
+                                  "isEnable": true,
+                                  "sliceFrom": null,
+                                  "sliceLength": null,
+                                  "sourceField": "plant",
+                                  "sourceSectionID": "PLANTDATA",
+                                  "targetField": "storageLocation",
+                                  "targetSectionID": "STORAGELOCATION",
+                                  "tempID": "2W_SM_MM01"
+                                }
+                              ],
+                              "derivationRules": []
+                            },
+                            "selectedMDData": {
+                              "description": "Lager 0088 (WM)",
+                              "isActive": true,
+                              "plant": "0001",
+                              "storageLocation": "0088"
+                            }
+                          },
+                          "value": "0088",
+                          "keyFieldValue": "0088"
+                        }
+                      ],
+                      "canBeApproved": true
+                    }
+                  ],
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "sections/1/"
+                  }
+                }
+              ],
+              "fields": [
+                {
+                  "businessField": "targetSystemProductPlant",
+                  "businessTable": "prd.model.final.ProductPlant",
+                  "fieldIndex": "1.0",
+                  "fieldLabel": "targetSystemProductPlant",
+                  "fieldName": "targetSystemProductPlant",
+                  "keyField": false,
+                  "sectionID": "PLANTDATA",
+                  "shortFieldLabel": "Target System Product Plant",
+                  "sourceData": "{\"additionalFilter\":\"\",\"allowShowDescription\":false,\"display\":[\"targetSystem\"],\"entity\":\"UIMDTargetSystem\",\"fields\":[\"targetSystem\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"targetSystem\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                  "sourceType": "CUSTOMVIEW",
+                  "tempID": "2W_SM_MM01",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "fields/0/",
+                    "selectedMDData": {
+                      "description": "S4 System",
+                      "isActive": true,
+                      "targetSystem": "S4"
+                    }
+                  },
+                  "value": "S4",
+                  "keyFieldValue": "S4"
+                },
+                {
+                  "businessField": "plant",
+                  "businessTable": "prd.model.final.ProductPlant",
+                  "fieldIndex": "2.0",
+                  "fieldLabel": "plant",
+                  "fieldName": "plant",
+                  "keyField": true,
+                  "sectionID": "PLANTDATA",
+                  "shortFieldLabel": "Plant",
+                  "sourceData": "{\"additionalFilter\":\"\",\"allowShowDescription\":false,\"display\":[\"plantID\"],\"entity\":\"UIMDPlant\",\"fields\":[\"plantID\",\"purchasingOrg\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"plantID\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                  "sourceType": "CUSTOMVIEW",
+                  "tempID": "2W_SM_MM01",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "fields/1/",
+                    "selectedMDData": {
+                      "description": "Europe",
+                      "isActive": true,
+                      "plantID": "0001",
+                      "purchasingOrg": ""
+                    }
+                  },
+                  "value": "0001",
+                  "keyFieldValue": "0001"
+                }
+              ],
+              "canBeApproved": true
+            },
+            {
+              "actions": {
+                "MDGInsertionFlag": "ACTIVE",
+                "MDGDeletionFlag": "",
+                "MDGExistingFlag": false
+              },
+              "sections": [
+                {
+                  "businessTable": "prd.model.final.ProductPlantMapping",
+                  "parentSectionID": "PLANTDATA",
+                  "sectionID": "PLANTDATAMAPPING",
+                  "sectionIndex": 0,
+                  "sectionName": "Plant Local Data",
+                  "tempID": "2W_SM_MM01",
+                  "values": [
+                    {
+                      "actions": {
+                        "MDGInsertionFlag": "ACTIVE",
+                        "MDGDeletionFlag": "",
+                        "MDGExistingFlag": false
+                      },
+                      "sections": [],
+                      "fields": [
+                        {
+                          "businessField": "ERPSystem",
+                          "businessTable": "prd.model.final.ProductPlantMapping",
+                          "fieldIndex": "1.0",
+                          "fieldLabel": "ERPSystem",
+                          "fieldName": "ERPSystem",
+                          "keyField": false,
+                          "sectionID": "PLANTDATAMAPPING",
+                          "shortFieldLabel": "ERPSystem",
+                          "sourceData": "{\"additionalFilter\":\"targetSystem ne 'CENTRAL'\",\"allowShowDescription\":false,\"display\":[\"targetSystem\"],\"entity\":\"UIMDTargetSystem\",\"fields\":[\"targetSystem\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"targetSystem\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                          "sourceType": "CUSTOMVIEW",
+                          "tempID": "2W_SM_MM01",
+                          "additionalProps": {
+                            "visible": null,
+                            "path": "fields/0/",
+                            "selectedMDData": {
+                              "description": "WILL1",
+                              "isActive": true,
+                              "targetSystem": "WILL"
+                            }
+                          },
+                          "value": "WILL",
+                          "keyFieldValue": "WILL",
+                          "keepOriginalValue": true
+                        },
+                        {
+                          "businessField": "ERPpurchasingGroup",
+                          "businessTable": "prd.model.final.ProductPlantMapping",
+                          "fieldIndex": "2.0",
+                          "fieldLabel": "ERPpurchasingGroup",
+                          "fieldName": "ERPpurchasingGroup",
+                          "keyField": false,
+                          "sectionID": "PLANTDATAMAPPING",
+                          "shortFieldLabel": "Purchasing Group",
+                          "sourceData": "{\"additionalFilter\":\"\",\"allowShowDescription\":false,\"display\":[\"purchasingGroup\",\"description\"],\"entity\":\"UIMDPurchasingGroup\",\"fields\":[\"purchasingGroup\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"purchasingGroup\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                          "sourceType": "CUSTOMVIEW",
+                          "tempID": "2W_SM_MM01",
+                          "additionalProps": {
+                            "visible": null,
+                            "path": "fields/1/",
+                            "selectedMDData": {
+                              "description": "Einkäufer 2",
+                              "isActive": true,
+                              "purchasingGroup": "002"
+                            }
+                          },
+                          "value": "002",
+                          "keyFieldValue": "002",
+                          "keepOriginalValue": true
+                        }
+                      ],
+                      "canBeApproved": true
+                    }
+                  ],
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "sections/0/"
+                  }
+                },
+                {
+                  "businessTable": "prd.model.final.ProductStorageLocation",
+                  "parentSectionID": "PLANTDATA",
+                  "sectionID": "STORAGELOCATION",
+                  "sectionIndex": 1,
+                  "sectionName": "Storage Location",
+                  "tempID": "2W_SM_MM01",
+                  "values": [
+                    {
+                      "actions": {
+                        "MDGInsertionFlag": "ACTIVE",
+                        "MDGDeletionFlag": "",
+                        "MDGExistingFlag": false
+                      },
+                      "sections": [],
+                      "fields": [
+                        {
+                          "businessField": "targetSystemProductStorageLocation",
+                          "businessTable": "prd.model.final.ProductStorageLocation",
+                          "fieldIndex": "1.0",
+                          "fieldLabel": "targetSystemProductStorageLocation",
+                          "fieldName": "targetSystemProductStorageLocation",
+                          "keyField": false,
+                          "sectionID": "STORAGELOCATION",
+                          "shortFieldLabel": "Target System Product Storage Location",
+                          "sourceData": "{\"additionalFilter\":\"\",\"allowShowDescription\":false,\"display\":[\"targetSystem\"],\"entity\":\"UIMDTargetSystem\",\"fields\":[\"targetSystem\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"targetSystem\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                          "sourceType": "CUSTOMVIEW",
+                          "tempID": "2W_SM_MM01",
+                          "additionalProps": {
+                            "visible": null,
+                            "path": "fields/0/",
+                            "selectedMDData": {
+                              "description": "CENTRAL",
+                              "isActive": true,
+                              "targetSystem": "CENTRAL"
+                            }
+                          },
+                          "value": "CENTRAL",
+                          "keyFieldValue": "CENTRAL",
+                          "keepOriginalValue": true
+                        },
+                        {
+                          "businessField": "storageLocation",
+                          "businessTable": "prd.model.final.ProductStorageLocation",
+                          "fieldIndex": "2.0",
+                          "fieldLabel": "storageLocation",
+                          "fieldName": "storageLocation",
+                          "keyField": false,
+                          "sectionID": "STORAGELOCATION",
+                          "shortFieldLabel": "Storage Location",
+                          "sourceData": "{\"additionalFilter\":\"\",\"allowShowDescription\":false,\"display\":[\"storageLocation\",\"description\"],\"entity\":\"UIMDStorageLocation\",\"fields\":[\"plant\",\"storageLocation\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"storageLocation\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                          "sourceType": "CUSTOMVIEW",
+                          "tempID": "2W_SM_MM01",
+                          "additionalProps": {
+                            "visible": null,
+                            "path": "fields/1/",
+                            "targetRule": {
+                              "configRules": [
+                                {
+                                  "configType": "FILTER",
+                                  "configValue": "plant",
+                                  "isEnable": true,
+                                  "sliceFrom": null,
+                                  "sliceLength": null,
+                                  "sourceField": "plant",
+                                  "sourceSectionID": "PLANTDATA",
+                                  "targetField": "storageLocation",
+                                  "targetSectionID": "STORAGELOCATION",
+                                  "tempID": "2W_SM_MM01"
+                                }
+                              ],
+                              "derivationRules": []
+                            },
+                            "selectedMDData": {
+                              "description": "Lager 0088 (WM)",
+                              "isActive": true,
+                              "plant": "0003",
+                              "storageLocation": "0088"
+                            }
+                          },
+                          "value": "0088",
+                          "keyFieldValue": "0088",
+                          "keepOriginalValue": true
+                        }
+                      ],
+                      "canBeApproved": true
+                    }
+                  ],
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "sections/1/"
+                  }
+                }
+              ],
+              "fields": [
+                {
+                  "businessField": "targetSystemProductPlant",
+                  "businessTable": "prd.model.final.ProductPlant",
+                  "fieldIndex": "1.0",
+                  "fieldLabel": "targetSystemProductPlant",
+                  "fieldName": "targetSystemProductPlant",
+                  "keyField": false,
+                  "sectionID": "PLANTDATA",
+                  "shortFieldLabel": "Target System Product Plant",
+                  "sourceData": "{\"additionalFilter\":\"\",\"allowShowDescription\":false,\"display\":[\"targetSystem\"],\"entity\":\"UIMDTargetSystem\",\"fields\":[\"targetSystem\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"targetSystem\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                  "sourceType": "CUSTOMVIEW",
+                  "tempID": "2W_SM_MM01",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "fields/0/",
+                    "selectedMDData": {
+                      "description": "WWWW2",
+                      "isActive": true,
+                      "targetSystem": "WIL2"
+                    }
+                  },
+                  "value": "WIL2",
+                  "keyFieldValue": "WIL2",
+                  "keepOriginalValue": true
+                },
+                {
+                  "businessField": "plant",
+                  "businessTable": "prd.model.final.ProductPlant",
+                  "fieldIndex": "2.0",
+                  "fieldLabel": "plant",
+                  "fieldName": "plant",
+                  "keyField": true,
+                  "sectionID": "PLANTDATA",
+                  "shortFieldLabel": "Plant",
+                  "sourceData": "{\"additionalFilter\":\"\",\"allowShowDescription\":false,\"display\":[\"plantID\"],\"entity\":\"UIMDPlant\",\"fields\":[\"plantID\",\"purchasingOrg\",\"description\"],\"fixValues\":[],\"isOnPremise\":false,\"isUserInput\":false,\"key\":\"plantID\",\"keyField\":\"\",\"objectType\":\"Product\",\"source\":\"\",\"sourceType\":\"CUSTOMVIEW\",\"tableName\":\"\",\"targetSystem\":\"\"}",
+                  "sourceType": "CUSTOMVIEW",
+                  "tempID": "2W_SM_MM01",
+                  "additionalProps": {
+                    "visible": null,
+                    "path": "fields/1/",
+                    "selectedMDData": {
+                      "description": "Plant 0003 (is-ht-sw)",
+                      "isActive": true,
+                      "plantID": "0003",
+                      "purchasingOrg": null
+                    }
+                  },
+                  "value": "0003",
+                  "keyFieldValue": "0003",
+                  "keepOriginalValue": true
+                }
+              ],
+              "canBeApproved": true
+            }
+          ],
+          "additionalProps": {
+            "visible": null,
+            "path": "values/0/sections/2/"
+          }
+        }
+      ],
+      "fields": []
+    }
+  ],
+  "additionalProps": {
+    "visible": null
+  }
+}

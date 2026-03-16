@@ -1,0 +1,34 @@
+{
+  "Product": [
+    {
+      "businessTable": "ProductPlant",
+      "isCentral": true,
+      "objectType": "Product",
+      "targetSystem": "CENTRAL"
+    },
+    {
+      "businessTable": "ProductPlant",
+      "isCentral": true,
+      "objectType": "Product",
+      "targetSystem": "ECC"
+    },
+    {
+      "businessTable": "ProductPlant",
+      "isCentral": false,
+      "objectType": "Product",
+      "targetSystem": "S4"
+    },
+    {
+      "businessTable": "ProductPlant",
+      "isCentral": false,
+      "objectType": "Product",
+      "targetSystem": "WIL2"
+    },
+    {
+      "businessTable": "ProductPlant",
+      "isCentral": true,
+      "objectType": "Product",
+      "targetSystem": "WILL"
+    }
+  ]
+}

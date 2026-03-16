@@ -17,64 +17,134 @@ enum Ports {
   A = 3001,
 }
 
+// app.use('/srv-main/MainService/RequestAttachments', async (req: Request, res: Response) => {
+//   // set OData-Version 4.0
+//   res.setHeader('OData-Version', '4.0')
+//   return res.status(200).send({
+//   "@odata.context": "$metadata#RequestAttachments",
+//   "value": [
+//     {
+//       "ID": "e5b9c861-2c3e-4dfa-80d7-f1340b3415ee",
+//       "createdAt": "2026-02-12T04:04:49.634Z",
+//       "createdBy": "admin.s4cloud@laidon.com",
+//       "endTime": "2000-01-01T00:00:00.000Z",
+//       "file@odata.mediaContentType": null,
+//       "fileID": "SIMPLEMDG_PublicCloud/MasterData/CR0000011352/20260212/1006632_ARTM.01_2026-02-04T10_38_20.568Z.xlsx",
+//       "fileName": "1006632_ARTM.01_2026-02-04T10_38_20.568Z.xlsx",
+//       "fileSize": "55012",
+//       "fileType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+//       "isActive": true,
+//       "isDraft": false,
+//       "isMarkDelete": false,
+//       "itemID": null,
+//       "modifiedAt": "2026-02-12T04:10:11.376Z",
+//       "modifiedBy": "privileged",
+//       "reqID": "CR0000011352",
+//       "storageType": "6",
+//       "type": "RequestAttachment",
+//       "url": "https://laidonnam.sharepoint.com/sites/SitepointUpload"
+//     },
+//     {
+//       "ID": "b80f6fae-f0c7-4244-9f20-81800d8aa0d2",
+//       "createdAt": "2026-02-12T04:04:48.967Z",
+//       "createdBy": "admin.s4cloud@laidon.com",
+//       "endTime": "2000-01-01T00:00:00.000Z",
+//       "file@odata.mediaContentType": null,
+//       "fileID": "SIMPLEMDG_PublicCloud/MasterData/CR0000011352/20260212/2662501_SA_BP02_2026-01-29T04_06_31.859Z.xlsx",
+//       "fileName": "2662501_SA_BP02_2026-01-29T04_06_31.859Z.xlsx",
+//       "fileSize": "30532",
+//       "fileType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+//       "isActive": true,
+//       "isDraft": false,
+//       "isMarkDelete": false,
+//       "itemID": null,
+//       "modifiedAt": "2026-02-12T04:10:11.376Z",
+//       "modifiedBy": "privileged",
+//       "reqID": "CR0000011352",
+//       "storageType": "6",
+//       "type": "RequestAttachment",
+//       "url": "https://laidonnam.sharepoint.com/sites/SitepointUpload"
+//     },
+//     {
+//       "ID": "f7f807fb-9b7d-42cb-a955-18bc36b193cc",
+//       "createdAt": "2026-02-12T04:04:47.523Z",
+//       "createdBy": "admin.s4cloud@laidon.com",
+//       "endTime": "2000-01-01T00:00:00.000Z",
+//       "file@odata.mediaContentType": null,
+//       "fileID": "SIMPLEMDG_PublicCloud/MasterData/CR0000011352/20260212/2223919_UIMDCLASSTYPE_2026-02-11T11_50_17.195Z_2026-02-11T11_50_17.195Z.xlsx",
+//       "fileName": "2223919_UIMDCLASSTYPE_2026-02-11T11_50_17.195Z_2026-02-11T11_50_17.195Z.xlsx",
+//       "fileSize": "19564",
+//       "fileType": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+//       "isActive": true,
+//       "isDraft": false,
+//       "isMarkDelete": false,
+//       "itemID": null,
+//       "modifiedAt": "2026-02-12T04:10:11.376Z",
+//       "modifiedBy": "privileged",
+//       "reqID": "CR0000011352",
+//       "storageType": "6",
+//       "type": "RequestAttachment",
+//       "url": "https://laidonnam.sharepoint.com/sites/SitepointUpload"
+//     }
+//   ]
+// })
+// })
 
 const PORT = Number(process.env.PORT) || Ports.A
 console.log('process.env.PORT: ', process.env.PORT)
-const raw = String.raw`fetch("https://multiple-erp-dev-simplemdg-web.cfapps.br10.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequest", {
+// .filter(e => e.tableName.length > 25).map(e => e.tableName)
+let raw = String.raw`fetch("https://olymel-dev-simplemdg-web.cfapps.ca10.hana.ondemand.com/srv-approver/ApproverService/myInbox", {
   "headers": {
     "accept": "application/json, text/plain, */*",
     "accept-language": "en-US",
     "application-interface-key": "52ve7fwy",
     "content-type": "application/json",
     "priority": "u=1, i",
-    "sec-ch-ua": "\"Microsoft Edge\";v=\"143\", \"Chromium\";v=\"143\", \"Not A(Brand\";v=\"24\"",
+    "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Microsoft Edge\";v=\"146\"",
     "sec-ch-ua-mobile": "?0",
     "sec-ch-ua-platform": "\"Windows\"",
     "sec-fetch-dest": "empty",
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "same-origin",
-    "x-correlation-id": "multiple.demo@laidon.com",
-    "x-csrf-token": "ab6c506ea8d66270-rzf1s8lKBFlEhlSHjvCJ8bmKfpY",
-    "cookie": "__VCAP_ID__=aac84547-5610-4dcb-7880-3601; JSESSIONID=s%3AJog8e0dlxSPi5AOoAo0iNOfCFQpxebRH.5lKwTeyk9CDD9XXC51%2F2OkgyFGNHfQ2RsCsOWmxAZqI",
-    "Referer": "https://multiple-erp-dev-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html"
+    "x-correlation-id": "olymel.dev@laidon.com",
+    "x-csrf-token": "b94264e3946ac43d-gA8wWBc_uamoZOHSayXEhkilT74",
+    "cookie": "JSESSIONID=s%3AEt_UJnw7VI4_s5iptDyhLOcmMlkp4CjK.TY%2BRkh0bofkVMnVOSWDEQxRpVIYnMJak4qVQWxNxEnY; __VCAP_ID__=aac3f821-e406-40d9-7997-a773",
+    "Referer": "https://olymel-dev-simplemdg-web.cfapps.ca10.hana.ondemand.com/main/index.html"
   },
-  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"objectType\":\"\",\"slaID\":\"\",\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"createdBy\":[\"multiple.demo@laidon.com\"],\"sortBy\":[\"modifiedAt\",\"DESC\"]}}",
+  "body": "{\"myInbox\":{\"category\":\"DIRECT\",\"status\":\"\",\"searchString\":\"\",\"top\":20,\"skip\":0,\"offSet\":0,\"isScheduled\":false,\"sortBy\":[\"\",\"DESC\"],\"groupBy\":\"approvalStatus\"}}",
   "method": "POST"
 });`
 
+
+// if (PORT === Ports.A) {
+//   raw = String.raw`fetch("https://pre-stage-2-simplemdg-web.cfapps.br10.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequest", {
+//   "headers": {
+//     "accept": "application/json, text/plain, */*",
+//     "accept-language": "en-US",
+//     "application-interface-key": "52ve7fwy",
+//     "cache-control": "no-cache",
+//     "content-type": "application/json",
+//     "pragma": "no-cache",
+//     "priority": "u=1, i",
+//     "sec-ch-ua": "\"Not:A-Brand\";v=\"99\", \"Microsoft Edge\";v=\"145\", \"Chromium\";v=\"145\"",
+//     "sec-ch-ua-mobile": "?0",
+//     "sec-ch-ua-platform": "\"Windows\"",
+//     "sec-fetch-dest": "empty",
+//     "sec-fetch-mode": "cors",
+//     "sec-fetch-site": "same-origin",
+//     "x-correlation-id": "rina.ksor@laidon.com",
+//     "x-csrf-token": "442b135d22a8c629-VFdgSN3p106-QXJ-CDqsQ1dP82A",
+//     "cookie": "JSESSIONID=s%3AANDbWbrpQXYYAQM2D002OYWCAdHsvxbZ.Z8hry5Csqvi6IqwN6tIgswFa%2Beecmdy%2BbkD1CZvtA9o; __VCAP_ID__=3c665d87-73ce-48a7-737c-d74b",
+//     "Referer": "https://pre-stage-2-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html"
+//   },
+//   "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"isScheduled\":false,\"objectType\":\"\",\"priority\":\"\",\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"createdBy\":[\"rina.ksor@laidon.com\"],\"sortBy\":[\"modifiedAt\",\"DESC\"]}}",
+//   "method": "POST"
+// });`
+// }
+
+
 const headers = extractHeadersFromAxiosCode(raw)
 const SV_URL = new URL(headers.Referer).origin
-// ===============================================================================
-// const CUSTOM_BASE = 'https://pre-stage-2-simplemdg-srv-custom.cfapps.br10.hana.ondemand.com'
-// const BEARER =
-//   'eyJ0eXAiOiJKV1QiLCJqaWQiOiJPNXZaeEIyajhNVmVaM1JmZ3VkNHpsaHVZZzFrcUVVWGl6di83eG9zSzJBPSIsImFsZyI6IlJTMjU2Iiwiamt1IjoiaHR0cHM6Ly9zaW5nbGUtYW1zLXNpbXBsZW1kZy5hdXRoZW50aWNhdGlvbi5icjEwLmhhbmEub25kZW1hbmQuY29tL3Rva2VuX2tleXMiLCJraWQiOiJkZWZhdWx0LWp3dC1rZXktMzMwMDNiOGJjZSJ9.eyJzdWIiOiJzYi1zaW1wbGVtZGchdDE3NTEzIiwiaXNzIjoiaHR0cHM6Ly9zaW5nbGUtYW1zLXNpbXBsZW1kZy5hdXRoZW50aWNhdGlvbi5icjEwLmhhbmEub25kZW1hbmQuY29tL29hdXRoL3Rva2VuIiwiYXV0aG9yaXRpZXMiOlsidWFhLnJlc291cmNlIl0sImNsaWVudF9pZCI6InNiLXNpbXBsZW1kZyF0MTc1MTMiLCJhdWQiOlsidWFhIiwic2Itc2ltcGxlbWRnIXQxNzUxMyJdLCJleHRfYXR0ciI6eyJlbmhhbmNlciI6IlhTVUFBIiwic3ViYWNjb3VudGlkIjoiNDJmYTQ2MzUtMjhmNS00ZjViLWFmNTctYjk1OTY4NDFiMDRhIiwiemRuIjoic2luZ2xlLWFtcy1zaW1wbGVtZGcifSwiemlkIjoiNDJmYTQ2MzUtMjhmNS00ZjViLWFmNTctYjk1OTY4NDFiMDRhIiwiZ3JhbnRfdHlwZSI6ImNsaWVudF9jcmVkZW50aWFscyIsImF6cCI6InNiLXNpbXBsZW1kZyF0MTc1MTMiLCJzY29wZSI6WyJ1YWEucmVzb3VyY2UiXSwiZXhwIjoxNzY3OTM1MTA5LCJpYXQiOjE3Njc5MzE1MDksImp0aSI6ImU0M2Q4MzI5NmNlZjQxZGNiNmQ1ZDFjM2UyMGYxNmM1IiwicmV2X3NpZyI6IjhhYzVhNGVlIiwiY2lkIjoic2Itc2ltcGxlbWRnIXQxNzUxMyJ9.hTezJoxwqtVRk1cvCjGAqrK_5DJCpQOkatkEaVWXBEhQO5kRJisfOJCAEjODof2QNvevnfqLyuQmQaqacAHWr3NhTM8_M1W90NP6LwfG_f1nDnuFpSquuiiHvjfSQfNq05Q88tyw46eYWy26CbR2vOt7u1bkJXhc1dJKTavt_cVmg5R7v3N04kzYdMg5Lqikz_CW8u9LVKvCzsamiaeWEBOAFz0mOwLgWQvb5ISqyp84DYny43tGt8n2i0G8t0oDvGPt_Cn-ERS2qPeIysQxFgW2-smnqZfkTk24CTYLevmeH9_Ab1mfH5OxsVZD1iKehG6mn3vzhqDGpyGm7jXzVw'
-
-// app.use('/srv-custom', async (req: Request, res: Response) => {
-//   const upstreamUrl = `${CUSTOM_BASE}${req.originalUrl.replace(/^\/srv-custom/, '')}`
-//   console.log('upstreamUrl: ', upstreamUrl)
-
-//   try {
-//     const proxied = await axios.request({
-//       method: req.method as any,
-//       url: upstreamUrl,
-//       data: req.body,
-//       headers: {
-//         ..._.omit(req.headers, ['host', 'origin', 'referer', 'cookie', 'content-length', 'connection']),
-//         ...(BEARER ? { Authorization: `Bearer ${BEARER}` } : {}),
-//       },
-//       validateStatus: () => true,
-//     })
-
-//     const safeHeaders = _.omit(proxied.headers, ['transfer-encoding', 'connection', 'content-length'])
-//     res.set(safeHeaders)
-//     res.status(proxied.status || 200).send(proxied.data)
-//   } catch (error: any) {
-//     const status = error?.response?.status || 500
-//     const message = error?.response?.data || error?.message || 'Internal Server Error'
-//     return res.status(status).send(message)
-//   }
-// })
-// ===============================================================================
 
 app.use(async (req: Request, res: Response, next: NextFunction) => {
   const path = req.path.toLowerCase()
