@@ -93,7 +93,7 @@ enum Ports {
 const PORT = Number(process.env.PORT) || Ports.A
 console.log('process.env.PORT: ', process.env.PORT)
 // .filter(e => e.tableName.length > 25).map(e => e.tableName)
-let raw = String.raw`fetch("https://olymel-dev-simplemdg-web.cfapps.ca10.hana.ondemand.com/srv-approver/ApproverService/myInbox", {
+let raw = String.raw`fetch("https://multiple-erp-dev-simplemdg-web.cfapps.br10.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequest", {
   "headers": {
     "accept": "application/json, text/plain, */*",
     "accept-language": "en-US",
@@ -106,41 +106,38 @@ let raw = String.raw`fetch("https://olymel-dev-simplemdg-web.cfapps.ca10.hana.on
     "sec-fetch-dest": "empty",
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "same-origin",
-    "x-correlation-id": "olymel.dev@laidon.com",
-    "x-csrf-token": "b94264e3946ac43d-gA8wWBc_uamoZOHSayXEhkilT74",
-    "cookie": "JSESSIONID=s%3AEt_UJnw7VI4_s5iptDyhLOcmMlkp4CjK.TY%2BRkh0bofkVMnVOSWDEQxRpVIYnMJak4qVQWxNxEnY; __VCAP_ID__=aac3f821-e406-40d9-7997-a773",
-    "Referer": "https://olymel-dev-simplemdg-web.cfapps.ca10.hana.ondemand.com/main/index.html"
+    "x-correlation-id": "multiple.demo@laidon.com",
+    "x-csrf-token": "520d3c3e5959f9c3-ZRkh36TZPxks5Nke2FXNC2F8QFk",
+    "cookie": "__VCAP_ID__=6649d15b-f948-46a6-4aa7-43a4; JSESSIONID=s%3ALorpjfBSBkZmdAlmSiRpRO7w-lmTRy3S.Z2QNLknrNMTB5a5KAlP4ANHJ%2FejXwTVcAYkjZ3PENEk",
+    "Referer": "https://multiple-erp-dev-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html"
   },
-  "body": "{\"myInbox\":{\"category\":\"DIRECT\",\"status\":\"\",\"searchString\":\"\",\"top\":20,\"skip\":0,\"offSet\":0,\"isScheduled\":false,\"sortBy\":[\"\",\"DESC\"],\"groupBy\":\"approvalStatus\"}}",
+  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"objectType\":\"\",\"slaID\":\"\",\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"createdBy\":[\"multiple.demo@laidon.com\"],\"sortBy\":[\"modifiedAt\",\"DESC\"]}}",
   "method": "POST"
 });`
 
-
-// if (PORT === Ports.A) {
-//   raw = String.raw`fetch("https://pre-stage-2-simplemdg-web.cfapps.br10.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequest", {
-//   "headers": {
-//     "accept": "application/json, text/plain, */*",
-//     "accept-language": "en-US",
-//     "application-interface-key": "52ve7fwy",
-//     "cache-control": "no-cache",
-//     "content-type": "application/json",
-//     "pragma": "no-cache",
-//     "priority": "u=1, i",
-//     "sec-ch-ua": "\"Not:A-Brand\";v=\"99\", \"Microsoft Edge\";v=\"145\", \"Chromium\";v=\"145\"",
-//     "sec-ch-ua-mobile": "?0",
-//     "sec-ch-ua-platform": "\"Windows\"",
-//     "sec-fetch-dest": "empty",
-//     "sec-fetch-mode": "cors",
-//     "sec-fetch-site": "same-origin",
-//     "x-correlation-id": "rina.ksor@laidon.com",
-//     "x-csrf-token": "442b135d22a8c629-VFdgSN3p106-QXJ-CDqsQ1dP82A",
-//     "cookie": "JSESSIONID=s%3AANDbWbrpQXYYAQM2D002OYWCAdHsvxbZ.Z8hry5Csqvi6IqwN6tIgswFa%2Beecmdy%2BbkD1CZvtA9o; __VCAP_ID__=3c665d87-73ce-48a7-737c-d74b",
-//     "Referer": "https://pre-stage-2-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html"
-//   },
-//   "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"isScheduled\":false,\"objectType\":\"\",\"priority\":\"\",\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"createdBy\":[\"rina.ksor@laidon.com\"],\"sortBy\":[\"modifiedAt\",\"DESC\"]}}",
-//   "method": "POST"
-// });`
-// }
+if (PORT === Ports.M) {
+  raw = String.raw`fetch("https://ait-dev-simplemdg-web.cfapps.us21.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequest", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "en-US",
+    "application-interface-key": "52ve7fwy",
+    "content-type": "application/json",
+    "priority": "u=1, i",
+    "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Microsoft Edge\";v=\"146\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "x-correlation-id": "ait.dev@laidon.com",
+    "x-csrf-token": "5f6a59d5d85bfdfe-49waFJxCzhVzGf6lGrkw2EK3b1A",
+    "cookie": "JSESSIONID=s%3AQe7T6k9UDw2Psp6Q5lJsGdL4xh8fhjaX.uXvBFXlsKW4CGfGcVCPpmFvV2RFJ3fn00f%2F0ZgEA78w; __VCAP_ID__=3c421b6e-6d49-43f6-4b40-123d",
+    "Referer": "https://ait-dev-simplemdg-web.cfapps.us21.hana.ondemand.com/main/index.html"
+  },
+  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"isScheduled\":false,\"objectType\":\"\",\"slaID\":\"\",\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"createdBy\":[\"ait.dev@laidon.com\"],\"sortBy\":[\"modifiedAt\",\"DESC\"]}}",
+  "method": "POST"
+});`
+}
 
 
 const headers = extractHeadersFromAxiosCode(raw)
