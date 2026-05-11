@@ -17,32 +17,28 @@ enum Ports {
   A = 3001,
 }
 
-// app.use('/srv-main/MainService/RequestAttachments', async (req: Request, res: Response) => {
-//   return res.status(200).send()
-// })
-
 const PORT = Number(process.env.PORT) || Ports.A
 console.log('process.env.PORT: ', process.env.PORT)
-// .filter(e => e.tableName.length > 25).map(e => e.tableName)
-let raw = String.raw`fetch("https://multiple-erp-dev-simplemdg-web.cfapps.br10.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequest", {
+
+let raw = String.raw`fetch("https://panasonic-dev-simplemdg-web.cfapps.us21.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequest", {
   "headers": {
     "accept": "application/json, text/plain, */*",
     "accept-language": "en-US",
     "application-interface-key": "52ve7fwy",
     "content-type": "application/json",
     "priority": "u=1, i",
-    "sec-ch-ua": "\"Chromium\";v=\"146\", \"Not-A.Brand\";v=\"24\", \"Microsoft Edge\";v=\"146\"",
+    "sec-ch-ua": "\"Microsoft Edge\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
     "sec-ch-ua-mobile": "?0",
     "sec-ch-ua-platform": "\"Windows\"",
     "sec-fetch-dest": "empty",
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "same-origin",
-    "x-correlation-id": "multiple.demo@laidon.com",
-    "x-csrf-token": "520d3c3e5959f9c3-ZRkh36TZPxks5Nke2FXNC2F8QFk",
-    "cookie": "__VCAP_ID__=6649d15b-f948-46a6-4aa7-43a4; JSESSIONID=s%3ALorpjfBSBkZmdAlmSiRpRO7w-lmTRy3S.Z2QNLknrNMTB5a5KAlP4ANHJ%2FejXwTVcAYkjZ3PENEk",
-    "Referer": "https://multiple-erp-dev-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html"
+    "x-correlation-id": "panasonic.dev@laidon.com",
+    "x-csrf-token": "05fe21e16b4851d5-N7q1YjGLUIDP1T_xceSq0UuImhI",
+    "cookie": "JSESSIONID=s%3AYE452HgKwgyO7QgVEe47ivoeiBLoY75x.xQ8qR04G%2BI1ZdlAAnurLtenVc1S%2FYXxM58%2FU23v%2BuEk; __VCAP_ID__=498243e6-5db4-472b-5245-9365",
+    "Referer": "https://panasonic-dev-simplemdg-web.cfapps.us21.hana.ondemand.com/main/index.html"
   },
-  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"objectType\":\"\",\"slaID\":\"\",\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"createdBy\":[\"multiple.demo@laidon.com\"],\"sortBy\":[\"modifiedAt\",\"DESC\"]}}",
+  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"isScheduled\":false,\"objectType\":\"\",\"slaID\":\"\",\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"createdBy\":[],\"sortBy\":[\"modifiedAt\",\"DESC\"]}}",
   "method": "POST"
 });`
 
