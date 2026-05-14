@@ -20,27 +20,54 @@ enum Ports {
 const PORT = Number(process.env.PORT) || Ports.A
 console.log('process.env.PORT: ', process.env.PORT)
 
-let raw = String.raw`fetch("https://panasonic-dev-simplemdg-web.cfapps.us21.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequest", {
+let raw = String.raw`fetch("https://tysonfoods-qas-simplemdg-web.cfapps.us21.hana.ondemand.com/srv-admin/AdminService/CompanyLogos(2c67246f-498d-47cb-809c-03e4d1602be9)/image", {
   "headers": {
     "accept": "application/json, text/plain, */*",
     "accept-language": "en-US",
     "application-interface-key": "52ve7fwy",
     "content-type": "application/json",
     "priority": "u=1, i",
-    "sec-ch-ua": "\"Microsoft Edge\";v=\"147\", \"Not.A/Brand\";v=\"8\", \"Chromium\";v=\"147\"",
+    "sec-ch-ua": "\"Chromium\";v=\"148\", \"Microsoft Edge\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
     "sec-ch-ua-mobile": "?0",
     "sec-ch-ua-platform": "\"Windows\"",
     "sec-fetch-dest": "empty",
     "sec-fetch-mode": "cors",
     "sec-fetch-site": "same-origin",
-    "x-correlation-id": "panasonic.dev@laidon.com",
-    "x-csrf-token": "05fe21e16b4851d5-N7q1YjGLUIDP1T_xceSq0UuImhI",
-    "cookie": "JSESSIONID=s%3AYE452HgKwgyO7QgVEe47ivoeiBLoY75x.xQ8qR04G%2BI1ZdlAAnurLtenVc1S%2FYXxM58%2FU23v%2BuEk; __VCAP_ID__=498243e6-5db4-472b-5245-9365",
-    "Referer": "https://panasonic-dev-simplemdg-web.cfapps.us21.hana.ondemand.com/main/index.html"
+    "x-correlation-id": "",
+    "x-csrf-token": "9c09d9890014ad07-ajv_EhxlAoQRl3tTLd3Fa04Y2fU",
+    "cookie": "__VCAP_ID__=26abdee3-3e45-4a14-6d09-4d2f; __VCAP_ID_META__=secure; JSESSIONID=s%3AEtiPYeUhuT1sTRFXI4ACqU2BgZs1M08f.L4e9H%2FJCJdofkAr%2BDgvttDL6mVuK2Hn6Aqf6Rlz0RUc",
+    "Referer": "https://tysonfoods-qas-simplemdg-web.cfapps.us21.hana.ondemand.com/admin/index.html"
   },
-  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"isScheduled\":false,\"objectType\":\"\",\"slaID\":\"\",\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"createdBy\":[],\"sortBy\":[\"modifiedAt\",\"DESC\"]}}",
+  "body": "{}",
+  "method": "PUT"
+});`
+
+if (PORT === Ports.M) {
+  raw = String.raw`fetch("https://pre-stage-2-simplemdg-web.cfapps.br10.hana.ondemand.com/srv-process/CommonProcessService/getBusinessRequest", {
+  "headers": {
+    "accept": "application/json, text/plain, */*",
+    "accept-language": "en-US",
+    "application-interface-key": "52ve7fwy",
+    "cache-control": "no-cache",
+    "content-type": "application/json",
+    "pragma": "no-cache",
+    "priority": "u=1, i",
+    "sec-ch-ua": "\"Chromium\";v=\"148\", \"Microsoft Edge\";v=\"148\", \"Not/A)Brand\";v=\"99\"",
+    "sec-ch-ua-mobile": "?0",
+    "sec-ch-ua-platform": "\"Windows\"",
+    "sec-fetch-dest": "empty",
+    "sec-fetch-mode": "cors",
+    "sec-fetch-site": "same-origin",
+    "sec-gpc": "1",
+    "x-correlation-id": "single.ams@laidon.com",
+    "x-csrf-token": "bf6840769a5a8fa8-On3cMXu_l1XAAA-oehrC06tgukY",
+    "cookie": "notice_preferences=1:; notice_gdpr_prefs=0|1::implied|eu; cmapi_gtm_bl=ta-asp-bzi-sp-awct-cts-csm-img-flc-fls-mpm-mpr-m6d-tc-tdc; cmapi_cookie_privacy=permit_1|2_functional; optout_domains_pc=; __VCAP_ID_META__=secure; __VCAP_ID__=546daef8-d714-4522-53e7-71b3; JSESSIONID=s%3ADFxNmSJ0X045dq0NSI6axIAcjAD88ImD.lUQU6PyHXC8voENnJx4cl%2BtJzAxNbjYb2bWKaq57ZBc",
+    "Referer": "https://pre-stage-2-simplemdg-web.cfapps.br10.hana.ondemand.com/main/index.html"
+  },
+  "body": "{\"businessRequest\":{\"reqID\":\"\",\"tempID\":\"\",\"objectID\":\"\",\"createdAtFrom\":\"\",\"createdAtTo\":\"\",\"modifiedAtFrom\":\"\",\"modifiedAtTo\":\"\",\"reason\":\"\",\"status\":\"ALL\",\"isScheduled\":false,\"objectType\":\"\",\"priority\":\"\",\"isType\":\"STATUS\",\"top\":20,\"skip\":0,\"offSet\":0,\"searchString\":\"\",\"createdBy\":[\"single.ams@laidon.com\"],\"sortBy\":[\"modifiedAt\",\"DESC\"]}}",
   "method": "POST"
 });`
+}
 
 const headers = extractHeadersFromAxiosCode(raw)
 const SV_URL = new URL(headers.Referer).origin
